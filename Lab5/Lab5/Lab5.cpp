@@ -1,24 +1,26 @@
+//Найти все целые числа из диапазона [10, n], куб суммы цифр которых равен самому числу. Например, 512=(5+1+2)3=83
 #include <math.h>
 #include <stdio.h>
 
+//функция нахождения суммы цифр числа
 int summator(int a)
 {
-	int ret=0;
-	int result = a;
-	for(int i=0; i < 4; i++)
+	int result=0;
+	int c = a;
+	for(int i=0; c != 0; i++)
 	{
-		ret+= result%10;
-		result = floor((float)(result/10 ));
+		result+= c%10;
+		c = floor((float)(c/10 ));
 	}
-	return ret;
+	return result;
 }
 
 int main()
 {
-	int n = 0;
-	float b;
+	int n;//входная переменная
 	printf("Insert n=");
 	scanf("%d", &n);
+	if(n < 10) return 0;
 
 	for(int i = 10; i <= n; i++)
 	{
